@@ -69,32 +69,3 @@ if uploaded_file is not None:
         st.dataframe(result_df, use_container_width=True)
 
         st.success(f"평균 예측 Volume: {pred_volume.mean():.3f}")
-
-        if "Sample" in result_df.columns:
-            st.subheader("Sample-level prediction summary")
-
-            summary_df = (
-                result_df
-                .groupby("Sample", as_index=False)["Predicted_Volume"]
-                .mean()
-            )
-
-            st.dataframe(summary_df, use_container_width=True)
-
-            summary_csv = summary_df.to_csv(index=False).encode("utf-8-sig")
-
-            st.download_button(
-                label="Download sample-level result",
-                data=summary_csv,
-                file_name="bread_volume_prediction_summary.csv",
-                mime="text/csv"
-            )
-
-        result_csv = result_df.to_csv(index=False).encode("utf-8-sig")
-
-        st.download_button(
-            label="Download full prediction result",
-            data=result_csv,
-            file_name="bread_volume_prediction_result.csv",
-            mime="text/csv"
-        )
