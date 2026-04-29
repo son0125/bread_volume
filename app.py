@@ -13,7 +13,7 @@ st.title("Artificial Intelligence Prediction of Bread Qualities (Volume)")
 st.caption("made by Korea Food Research Institute and Sejong Univ.")
 
 st.write(
-    "(Hyperspectral imaging 또는 Mixolab 기반 데이터를 이용하여 "
+    "(Hyperspectral imaging 데이터를 이용하여 "
     "빵의 volume을 예측하는 모델입니다.)"
 )
 
